@@ -1,0 +1,114 @@
+
+************* Aula 1 *****************************************************************
+
+
+ng-app iniciliza o modulo que desejo, é tipo um registro.
+
+Uma View pode ter mais de um controller, logo é obrigatório
+voce indicar qual local dentro do seu html ele o controller
+é responsável.
+
+Ex: <body ng-controller="FotosController">
+
+No mundo html não existe atributos com ng, logo o que o Angular
+utilza são diretivas.
+
+Nomenclaturas: View = Página
+               Diretivas = Atributos do AngularJs
+               Angular Expression = Lacunas do template
+               Controller = disponibiliza o dado para View
+               Data Bind = Quando um dado muda, a View é redesenhada para responder
+               ao estado daquele novo dado.
+
+***** Toda variável declarada dentro de uma função é privada.
+
+Scopo = referência a todo o contexto que o controlador tem acesso,
+no exemplo FotosController é responsável pelo body, logo $scope é a
+body.
+
+$scope = indica a dependência do controller, Angular suporte injeção de
+dependência e para todo utiliza -se $scope.
+Serve para o controller disponibilizar dados para minha View.
+
+
+************* Aula 2 *******************************************************************
+
+Criado um array de fotos
+
+Utiliza-se a diretiva ng-repeat="(key, value) in dataset, onde key, value é substituído por
+foto e dataset por fotos.
+
+$http é um serviço do Angular responsável por requisições Ajax.
+É uma ação assincrona, ou seja, você não sabe quando ela vai terminar, o que ele pode te
+devolver é uma promessa ('promise') e daí ele passa uma função de callback para quem o chamou.
+
+Ou seja o $http lhe dá uma promessa e a partir daí é chamada uma função retornando ou não
+o dado solicitado.
+
+ex:  promise.then(function(retorno){
+        $scope.fotos = retorno.data;
+    });
+
+    // data é importante.
+
+Porém existe um atalho que é o .sucess que pode ser usado no lugar do
+
+/*var promise = $http.get('v1/fotos');
+    promise.then(function(retorno){
+        $scope.fotos = retorno.data;
+    }).catch(function(error)) {
+        console.log(error);
+    });*/
+
+Utilizar então
+
+    $http.get('v1/fotos');
+    .success(function(fotos) {
+        $scope.fotos = fotos;
+    })
+    .error(function(erro){
+        console.log(erro);
+    });
+
+
+************ Aula 3 ************************************************************************
+
+Componentes em Angular são diretivas de atributos e é possível utilizar diretivas até como
+tags.
+
+Não basta importar as diretivas, temos que fazer com que o primeiro modulo carregado pela index
+("main") dependa da diretiva minhas-
+diretivas.
+
+As dependências o angular resolve quando informada dentro do [].
+
+A diretiva cria um ddo (directive/ definition / object) ou seja um objeto, informando a restrição
+que define para que ele serve.
+
+ddo.restric = "AE" ---> atribute / element;
+
+Cada diretiva dever ter um scopo isolado, impossibilitando que elas bagunçem a view.
+
+Ao utilizar a diretiva você passa valores a partir de ddo.scope informando o @titulo.
+
+Caso o nome do atributo da diretiva tenha o mesmo nome o Angular permiti utilizar @
+e esse dado é passado como valor para diretiva.
+
+Para manter o elemento filho dentro da diretiva é necessário o mecanismo de transclude.
+
+Ex:
+
+ddo.transclude = true;
+
+e informar qual a tag vai usá -la.
+
+<div class="panel-body" ng-transclude>'
+
+
+
+
+
+
+
+
+
