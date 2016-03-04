@@ -114,7 +114,20 @@ css
 
 ************** Aula 5 ****************************************************************************
 
+Routers
 
+Importar lib router para fazer o direcionamento da pagina html para a div ao qual quer acoplar.
+
+Através do sistema de rotas do angular consigo direcionar para a página que eu quero
+é "um de para".
+
+Para registrar a rota utiliza-se a view.
+
+Pela dependencia da main com ngRouter eu posso direcionar para a parcial da seguinte maneira
+$routerProvider.when('/fotos');
+O método when utiliza como parâmetro um Objeto Javascript com duas propriedades
+1 - templateUrl --> informa o caminho até o html parcial no caso a página principal.
+2 -
 
 
 
