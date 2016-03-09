@@ -127,7 +127,30 @@ Pela dependencia da main com ngRouter eu posso direcionar para a parcial da segu
 $routerProvider.when('/fotos');
 O método when utiliza como parâmetro um Objeto Javascript com duas propriedades
 1 - templateUrl --> informa o caminho até o html parcial no caso a página principal.
-2 -
+2 - controller --> informa o controller ao qual a página está acoplada.
+
+Ao criar uma nova rota (ex: foto) a página não recarrega é utilizado o Ajax para isso.
+
+Em uma página singleAplication todo o Css e JavaScript fica na página principal.
+
+$routerProvider.otherwise direciona a pagina caso não exista o caminho no uri.
+
+$locationProvider: configurado de maneira correta vc consegue eliminar a #
+do url, essa configuração ocorre no main.js e na página index.
+
+
+************ Aula 6 *********************************************************************************
+
+Cadastro
+
+Para cada evento do Javascript existe uma diretiva do Angular para executar o programa
+ex: onSubmit() == ng-submit()
+
+
+
+
+
+
 
 
 
